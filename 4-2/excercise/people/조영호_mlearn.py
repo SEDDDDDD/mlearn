@@ -10,15 +10,12 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 csv = pd.read_csv('WineDataset.csv')
 # print(csv.head())
 
-# 3 categories
-# csv['Wine'].unique()
-
 data = csv.drop('Wine', axis=1).values # csv 에서 label 값을 제거한 데이터 값을 data에 할당
 
 # print(data)
 
-label = csv["Wine"].values   # 레이블
-# print/(label)
+label = csv["Wine"].values   # 레이블 값만 label 에 저장
+print(len(label))
 
 train_data, test_data, train_label, test_label = train_test_split(data, label, test_size=0.3)
 clf = GaussianNB()
