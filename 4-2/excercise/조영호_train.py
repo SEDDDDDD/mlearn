@@ -15,14 +15,13 @@ label = label.values
 # 학습 / 테스트 데이터 , 레이블 분할
 
 train_data, test_data, train_label, test_label = \
-    train_test_split(data, label, test_size=0.25)
+    train_test_split(data, label)
 
 
 # 모델링
-clf = ExtraTreesClassifier()
-# clf = svm.LinearSVC()
-# clf = svm.SVC()
-# clf = svm.SVR()
+
+clf = svm.SVC()
+
 
 clf.fit(train_data, train_label)
 
