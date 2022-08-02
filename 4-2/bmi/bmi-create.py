@@ -9,8 +9,6 @@ def calc_bmi(h, w):  # h : 키 , w : 몸무게
         return "thin"
     if bmi < 22.9:
         return "normal"
-    if bmi < 24.9:
-        return "overweight"
     return "fat"
 
 
@@ -18,7 +16,7 @@ def calc_bmi(h, w):  # h : 키 , w : 몸무게
 fp = open("bmi.csv", "w", encoding="utf-8")
 fp.write("height,weight,label\r\n")
 
-cnt = {"thin": 0, "normal": 0, "overweight": 0, "fat": 0}
+cnt = {"thin": 0, "normal": 0, "fat": 0}
 # 무작위로 데이터 생성
 for i in range(20000):
     h = random.randint(150, 200)
