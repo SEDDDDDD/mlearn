@@ -14,10 +14,11 @@ data = csv.drop('Wine', axis=1).values # csv 에서 label 값을 제거한 데�
 
 # print(data)
 
-label = csv["Wine"].values   # 레이블 값만 label 에 저장
-print(len(label))
+label = csv["Wine"].values   # 레이블 값만 label 에 리스트로 저장
+
 
 train_data, test_data, train_label, test_label = train_test_split(data, label, test_size=0.3)
+# 데이터 / 레이블 분류
 clf = GaussianNB()
 # 나이브베이즈 분류기 GaussianNB 적용
 
