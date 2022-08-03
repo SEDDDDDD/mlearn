@@ -1,5 +1,6 @@
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
+from keras.callbacks import EarlyStopping
 import pandas as pd
 import numpy as np
 
@@ -61,7 +62,18 @@ model.compile(optimizer="rmsprop",
 # 데이터 학습
 
 
-model.fit(X_train, y_train)
+model.fit(
+    X_train, y_train,
+    batch_size=100,
+    epochs=20,
+    validation_split=0.1,
+    # EarlyStopping : 손실값이 개선되지 않으면 학습을 종료
+    # patience 만큼 epochs를 기다림
+    # monitor 학습 조기 종료를 위해 관찰하는 항목
+    callbacks=[EarlyStopping(monitor='val_loss', patience=2)],
+    # 함수 수행시 발생하는 정보를 상세하게 출력할 것인지 여부 선택(0:출력안함, 1:자세히 출력, 2: 함축적 출력)
+    verbose=1
+)
 
 # 테스트 데이터로 평가
 
