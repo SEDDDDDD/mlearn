@@ -18,7 +18,7 @@ fp.write("height,weight,label\r\n")
 
 cnt = {"thin": 0, "normal": 0, "fat": 0}
 # 무작위로 데이터 생성
-for i in range(20000):
+for i in range(40000):
     h = random.randint(150, 200)
     w = random.randint(40, 120)
     # print(f"신장 : {h}\t 몸무게 : {w}\t 결과 : {label}\r\n")
