@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn import svm
 
 
 
@@ -19,7 +20,8 @@ label = csv["Wine"].values   # 레이블 값만 label 에 리스트로 저장
 
 train_data, test_data, train_label, test_label = train_test_split(data, label, test_size=0.3)
 # 데이터 / 레이블 분류
-clf = GaussianNB()
+# clf = GaussianNB()
+clf = svm.SVC()
 # 나이브베이즈 분류기 GaussianNB 적용
 
 
