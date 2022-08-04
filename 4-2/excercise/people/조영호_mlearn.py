@@ -50,3 +50,5 @@ plt.xlabel('예측값')
 plt.ylabel('실제값')
 
 plt.show()
+
+# 산점도 표현 알아봐라
