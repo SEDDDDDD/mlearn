@@ -21,8 +21,8 @@ label = csv["Wine"].values   # 레이블 값만 label 에 리스트로 저장
 train_data, test_data, train_label, test_label = train_test_split(data, label, test_size=0.3)
 # 데이터 / 레이블 분류
 # clf = GaussianNB()
-clf = svm.SVC()
-# 나이브베이즈 분류기 GaussianNB 적용
+clf = svm.SVC(kernel='linear')
+
 
 
 clf.fit(train_data, train_label)        # 학습
@@ -40,7 +40,7 @@ cmap = sns.cm._cmap_r # 그래프 컬러 설정
 plt.rcParams["axes.unicode_minus"]=False  # 마이너스 부호 때문에 혹시라도 한글이 깨지는 경우를 방지하기 위해 주는 옵션
 plt.rcParams['font.family'] = 'Malgun Gothic' # 폰트 설정
 
-# 분류 시각화를 위해 confusion_matrix(혼돈 행렬) 사용
+# 분류 시각화를 위해 confusion_matrix(오차 행렬) 사용
 sns.heatmap(confusion_matrix(test_label, predict), cmap=cmap, annot=True)
 # cmap : 그래프 컬러 설정, annot : 그래프 각 cell에 값 표기
 
